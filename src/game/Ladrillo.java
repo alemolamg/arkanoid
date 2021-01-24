@@ -5,19 +5,39 @@ import java.awt.Graphics;
 
 public class Ladrillo extends Objeto {
 	// Atributos
-	protected int ancho = 25;
-	protected int alto = 10;
+	protected static int ancho = 30;
+	protected static int alto = 17;
+	protected Color color = Color.red;
 	
-	public Ladrillo(int x, int y, int ancho, int alto) {
+//	public Ladrillo(int x, int y, int ancho, int alto) {
+//		super(x, y);
+//		this.ancho = ancho;
+//		this.alto = alto;
+//	}
+//	
+	public Ladrillo(int x, int y) {
+		super (x,y);
+	}
+	
+	public Ladrillo (int x, int y, Color color) {
 		super(x, y);
-		this.ancho = ancho;
-		this.alto = alto;
+		this.color = color;
 	}
 
 	@Override
 	protected void paint(Graphics g) {
-		g.setColor(Color.RED);
+		g.setColor(this.color);
 		g.fillRect(x, y, ancho, alto);
 	}
+
+	public static int getAncho() {
+		return ancho;
+	}
+
+	public static int getAlto() {
+		return alto;
+	}
+	
+	
 
 }
