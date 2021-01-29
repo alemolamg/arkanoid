@@ -49,7 +49,7 @@ public class Juego {
 	 * Prepara los objetos que se añaden a la lista de objetos.
 	 */
 	public static void preparaObjetos () {
-		creaLadrillos(8);
+		creaLadrillos(5);
 		creaPelota();
 	}
 	
