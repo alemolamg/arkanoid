@@ -5,8 +5,8 @@ import java.awt.Graphics;
 
 public class Ladrillo extends Objeto {
 	// Atributos
-	protected static int ancho = 30;
-	protected static int alto = 17;
+	protected static int ancho = 50;
+	protected static int alto = 32;
 	protected Color color = Color.red;
 	
 //	public Ladrillo(int x, int y, int ancho, int alto) {
@@ -36,6 +36,11 @@ public class Ladrillo extends Objeto {
 
 	public static int getAlto() {
 		return alto;
+	}
+	
+	@Override
+	public void actua() {
+		// TODO Auto-generated method stub	
 	}
 	
 	

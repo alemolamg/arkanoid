@@ -13,5 +13,10 @@ public abstract class Objeto {
 	}
 	
 	protected abstract void paint(Graphics g);	
+	
+	/**
+	 * Método que permite que cada actor realice las acciones que necesite en la creación de cada Frame
+	 */
+	public abstract void actua ();
 
 }
