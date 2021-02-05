@@ -165,19 +165,18 @@ public class Juego {
 	 * @param numFilas (int) Número de filas que queremos de ladrillos;
 	 * @param ventana
 	 */
-	public void creaLadrillos(int numFilas) {		
+	public void creaLadrillos(int numFilas) {
 		int parametroFilas = (Ladrillo.getAlto() * numFilas) + numFilas;
-		
+
 		Color colorLadrillo = Color.blue;
 		for (int j = 10; j < parametroFilas; j += (Ladrillo.getAlto() + 2)) {
 			colorLadrillo = generaColor(j);
-			for(int i = 10; i + Ladrillo.getAncho() < ventJuego.getBounds().width - 10; i+=Ladrillo.getAncho() + 2) {
-			listaObjs.add(new Ladrillo(i,j,colorLadrillo));
+			for (int i = 10; i + Ladrillo.getAncho() < ventJuego.getBounds().width - 10; i += Ladrillo.getAncho() + 2) {
+				listaObjs.add(new Ladrillo(i, j, colorLadrillo));
 			}
-	}
-		
-		System.out.println("Coordx = " + ventJuego.getBounds().width
-				+"\nCoordy = " + ventJuego.getY());
+		}
+
+		//System.out.println("Coordx = " + ventJuego.getBounds().width + "\nCoordy = " + ventJuego.getY());
 	}
 	
 	
