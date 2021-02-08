@@ -39,4 +39,27 @@ public class Pelota extends Objeto {
 		
 	}
 
+
+	public int getRadio() {
+		return radio;
+	}
+
+
+	public void setRadio(int radio) {
+		this.radio = radio;
+	}
+	
+	@Override
+	public int getAlto() {
+		// TODO Auto-generated method stub
+		return getRadio();
+	}
+
+
+	@Override
+	public int getAncho() {
+		// TODO Auto-generated method stub
+		return getRadio();
+	}
+
 }

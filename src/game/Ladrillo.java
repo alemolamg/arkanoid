@@ -30,17 +30,23 @@ public class Ladrillo extends Objeto {
 		g.fillRect(x, y, ancho, alto);
 	}
 
-	public static int getAncho() {
+	public int getAncho() {
 		return ancho;
 	}
 
-	public static int getAlto() {
+	public int getAlto() {
 		return alto;
 	}
 	
 	@Override
 	public void actua() {
 		// TODO Auto-generated method stub	
+	}
+
+	@Override
+	public void colisionaCon(Objeto elOtro) {
+		if()
+		
 	}
 	
 	

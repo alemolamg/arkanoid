@@ -6,6 +6,7 @@ package game;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Rectangle;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
@@ -18,6 +19,8 @@ import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
+import org.rmrsoft.spaceInvaders.Actor;
 
 public class Juego {
 	public static int FPS = 60;
@@ -229,6 +232,35 @@ public class Juego {
 	public MiCanvas getCanvas() {
 		return canvas;
 	}
+	
+	/**
+	 * Detecta colisiones entre actores e informa a los dos
+	 */
+	private void detectaColisiones() {
+		// Una vez que cada actor ha actuado, intento detectar colisiones entre los actores y notificarlas. Para detectar
+		// estas colisiones, no nos queda más remedio que intentar detectar la colisión de cualquier actor con cualquier otro
+		// sólo con la excepción de no comparar un actor consigo mismo.
+		// La detección de colisiones se va a baser en formar un rectángulo con las medidas que ocupa cada actor en pantalla,
+		// De esa manera, las colisiones se traducirán en intersecciones entre rectángulos.
+		for (Objeto objeto1 : this.listaObjs) {
+			// Creo un rectángulo para este actor.
+			Rectangle rect1 = new Rectangle(objeto1.getX(), objeto1.getY(), objeto1.getAncho(), objeto1.getAlto());
+			// Compruebo un actor con cualquier otro actor
+			for (Objeto objeto2 : this.listaObjs) {
+				// Evito comparar un actor consigo mismo, ya que eso siempre provocaría una colisión y no tiene sentido
+				if (!objeto1.equals(objeto2)) {
+					// Formo el rectángulo del actor 2
+					Rectangle rect2 = new Rectangle(objeto2.getX(), objeto2.getY(), objeto2.getAncho(), objeto2.getAlto());
+					// Si los dos rectángulos tienen alguna intersección, notifico una colisión en los dos actores
+					if (rect1.intersects(rect2)) {
+						objeto1.colisionaCon(objeto2); // El actor 1 colisiona con el actor 2
+						objeto2.colisionaCon(objeto1); // El actor 2 colisiona con el actor 1
+					}
+				}
+			}
+		}
+	}
+	
 	
 	
 	// Main
